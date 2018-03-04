@@ -1,10 +1,20 @@
-Package: KettingThemes
-Version: 0.0.0.9000
-Title: What the Package Does (one line, title case)
-Description: What the package does (one paragraph).
-Authors@R: person("First", "Last", , "first.last@example.com", c("aut", "cre"))
+Package: makeitprettier
+Version: 0.1
+Title: Set of themes and functions to make publication ready plots
+Description: The goal is to provide some easy to use function for the lab people to make pretty plots.
+URL: http://github.com/adomingues/makeitprettier
+Authors@R: person("Antonio Miguel", "de Jesus Domingues", , "amjdomingues@gmail.com", c("aut", "cre"))
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 RoxygenNote: 6.0.1
+Depends:
+	ggplot2,
+	scales,
+	grid,
+  	ggthemes
+Suggests:
+	knitr,
+    rmarkdown
+VignetteBuilder: knitr

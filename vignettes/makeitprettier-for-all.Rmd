@@ -1,0 +1,94 @@
+---
+title: "Make my plot prettier"
+author: "Antonio Miguel de Jesus Domingues"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.width=7,
+  fig.height=7,
+  comment = "#>"
+)
+```
+
+This vignette will introduce you to the package `makeitprettier`, which is fairly mundane affair, but will also be used to collect the tips and tricks that I frequently use when building plots/figures for presentation/publication and that could not be wrapped up in a function. 
+
+
+## Installation
+
+The easiest way is using `devtools` to install straight from github:
+
+```r
+# install.packages("devtools")
+devtools::install_github("adomingues/makeitprettier")
+```
+
+
+## Usage
+
+The package is organized in functions that can be added straighforwardly to any plot. Those functions are define as: 
+
+- theme_* to change the appearance of the plot
+- scale_color_* and scale_fill_ to change the colors used in the plot.
+
+I kept the theme simple and clean so that we can focus on the data, but did not get rid of all gridlines because I find those helpful to read values in a plot, ins particular in a poster when people may actually want to look at the detail.
+
+So how to actually use it? I have included a data set that mimics a typical IP experiment, with 3 replicates and 3 different antibodies to show what we can do with it. First let's plot the number of reads for each length :
+
+
+```{r test-data}
+library("makeitprettier")
+head(readcounts)
+
+p1 <- ggplot(readcounts, aes(x = readlength, y = N, color = Mapping)) +
+  geom_line() +
+  facet_grid(IP ~ Replicate)
+p1
+```
+
+To make it prettier we just add our little functions:
+
+```{r pretty}
+p1 + 
+  theme_poster() +
+  scale_color_prettier()
+```
+
+We did away with most of the visual clutter to make a much cleaner plot. I am planning on `publication` function that does away with even more visual elements:
+- Remove the gray boxes for each panel
+- Remove the gridlines
+
+
+## (brief) ggplot explanation 
+
+The plot above is a fairly complicated visualization in which we want to compare multiple things:
+
+- Sense vs antisense reads, which we can compare via the line color
+- Are the replicates similar? Easy to compare horizontally
+- Do the three IPs yield the same results?
+
+In `ggplot` we can map a certain visual attribute to a condition/factor. For instance, line color to the "Mapping". We can also use the factors to split the data in rows/columns as we did with `facet_grid(IP ~ Replicate)` where we are simply telling `ggplot` that we can split those variables in a grid with the IPs horizontally and the replicates vertically. 
+
+
+## Further improvments
+
+You would never put this in a final manuscript! The axis titles are either not readable, not informative or ugly. The values in a the y-axis are also pretty hard to read in a quick glance. Let's fix it.
+
+```{r fix-it}
+p1 + 
+  theme_poster() +
+  scale_color_prettier()+
+  scale_y_continuous(labels = scales::comma) +
+  labs(
+    x = "Read length (nt)",
+    y = "Number of reads") 
+```
+
+There you have it. It could almost go like this into print.

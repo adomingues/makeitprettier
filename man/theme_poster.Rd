@@ -16,7 +16,7 @@ A gggplot theme function
 }
 \description{
 Colors sizes, legends and in particular font sizes have been optimized
-for posters. 
+for posters.
 When saving, a size of 10 cm will make sure that very little editing is
 needed in illustrator.
 }

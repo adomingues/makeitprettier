@@ -20,6 +20,6 @@ A file is saved
 }
 \description{
 Helper function that saves (gg)plots as PNG and PDF simultaneously
-The default size should save plots large enough for a poster 
+The default size should save plots large enough for a poster
 Modified from: https://gist.github.com/sheymann/2399659
 }
