@@ -62,6 +62,7 @@ p1 +
 ```
 
 We did away with most of the visual clutter to make a much cleaner plot. I am planning on `publication` function that does away with even more visual elements:
+
 - Remove the gray boxes for each panel
 - Remove the gridlines
 
@@ -77,7 +78,7 @@ The plot above is a fairly complicated visualization in which we want to compare
 In `ggplot` we can map a certain visual attribute to a condition/factor. For instance, line color to the "Mapping". We can also use the factors to split the data in rows/columns as we did with `facet_grid(IP ~ Replicate)` where we are simply telling `ggplot` that we can split those variables in a grid with the IPs horizontally and the replicates vertically. 
 
 
-## Further improvments
+## Further improvements
 
 You would never put this in a final manuscript! The axis titles are either not readable, not informative or ugly. The values in a the y-axis are also pretty hard to read in a quick glance. Let's fix it.
 
@@ -92,3 +93,4 @@ p1 +
 ```
 
 There you have it. It could almost go like this into print.
+
