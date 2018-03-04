@@ -94,3 +94,17 @@ p1 +
 
 There you have it. It could almost go like this into print.
 
+
+## Save plots
+
+As you probably noticed, by default `gpplot` saves plots which requite resizing before inclusion in a poster. I have included a little function that saves the plots:
+
+- 15 x 15 cm (the default is inches - yuk)
+- as _pdf_ and _png_, for flexibility
+
+
+```{r save-plot}
+save_poster("~/test_save")
+```
+
+I found that 15 x 15 cm was about the right size for figure to slapped straight into a poster. The function takes all the usual `ggsave` arguments so the plot dimensions can be changed at will.
