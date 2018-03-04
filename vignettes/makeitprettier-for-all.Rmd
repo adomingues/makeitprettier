@@ -83,13 +83,15 @@ In `ggplot` we can map a certain visual attribute to a condition/factor. For ins
 You would never put this in a final manuscript! The axis titles are either not readable, not informative or ugly. The values in a the y-axis are also pretty hard to read in a quick glance. Let's fix it.
 
 ```{r fix-it}
-p1 + 
+p2 <- p1 + 
   theme_poster() +
   scale_color_prettier()+
   scale_y_continuous(labels = scales::comma) +
   labs(
     x = "Read length (nt)",
     y = "Number of reads") 
+
+p2
 ```
 
 There you have it. It could almost go like this into print.
@@ -99,12 +101,32 @@ There you have it. It could almost go like this into print.
 
 As you probably noticed, by default `gpplot` saves plots which requite resizing before inclusion in a poster. I have included a little function that saves the plots:
 
-- 15 x 15 cm (the default is inches - yuk)
+- in 15 x 15 cm (the default is inches - yuk)
 - as _pdf_ and _png_, for flexibility
 
 
-```{r save-plot}
-save_poster("~/test_save")
+```{r save-plot-1}
+save_plot("~/test_save")
+```
+
+The function knows which plot was generated last and saves that one. Regardless, it can also be told which plot to save:
+
+```{r save-plot-2}
+save_plot("~/test_save", p2)
 ```
 
 I found that 15 x 15 cm was about the right size for figure to slapped straight into a poster. The function takes all the usual `ggsave` arguments so the plot dimensions can be changed at will.
+
+It might (and it will be) useful to save the data in the plot to re-do it at a later stage without doing the analysis all over again. For that there is a little function:
+
+
+```{r save-data-1}
+save_data("~/test_save.data.txt")
+save_data("~/test_save.data.txt", p2)
+```
+
+The above will do the same, and will this:
+
+```{r save-all}
+save_plot("~/test_save", save_data = TRUE)
+```
