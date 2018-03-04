@@ -46,5 +46,6 @@ p1 +
 ## Sources
 
 I took inspiration and or used the code from:
+
 [ggthemes](https://github.com/jrnold/ggthemes)
 [ggplot_theme_Publication](https://github.com/koundy/ggplot_theme_Publication)
