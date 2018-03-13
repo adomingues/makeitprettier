@@ -113,5 +113,5 @@ scale_color_prettier <- function(palette = "main", ...) {
 scale_fill_prettier <- function(palette = "main", ...) {
   pal <- prettier_palettes[[palette]]
 
-  discrete_scale("fill", paste0("prettier_", palette), manual_pal(values = unname(pal)), ...)
+  discrete_scale("fill", paste0("prettier_", palette), manual_pal(values = unname(pal)), na.value = "black", ...)
 }
