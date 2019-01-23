@@ -10,7 +10,7 @@
 #'
 #' @export
 #' @return A gggplot theme function
-theme_poster <- function(base_size=16, base_family="Helvetica") {
+theme_redl <- function(base_size=16, base_family="Helvetica") {
   (ggthemes::theme_foundation(base_size = base_size, base_family = base_family)
   + theme(
       plot.title = element_text(
@@ -39,4 +39,13 @@ theme_poster <- function(base_size=16, base_family="Helvetica") {
       strip.text = element_text(face = "bold"),
       panel.spacing.y = unit(2, "lines")
     ))
+}
+
+theme_ricas <- function () { 
+  theme_poster() %+replace% 
+    theme(
+      axis.text.x = element_text(angle=40, vjust=.8, hjust=1.01),
+      panel.spacing.y = unit(2, "lines"),
+      panel.grid.major = element_blank(), panel.grid.minor = element_blank()
+      )
 }
