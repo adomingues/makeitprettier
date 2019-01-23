@@ -40,12 +40,3 @@ theme_redl <- function(base_size=16, base_family="Helvetica") {
       panel.spacing.y = unit(2, "lines")
     ))
 }
-
-theme_ricas <- function () { 
-  theme_poster() %+replace% 
-    theme(
-      axis.text.x = element_text(angle=40, vjust=.8, hjust=1.01),
-      panel.spacing.y = unit(2, "lines"),
-      panel.grid.major = element_blank(), panel.grid.minor = element_blank()
-      )
-}

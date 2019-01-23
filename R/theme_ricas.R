@@ -27,7 +27,6 @@ theme_ricas <- function(base_size=16, base_family="Helvetica") {
       axis.text = element_text(),
       axis.line = element_line(colour = "black"),
       axis.ticks = element_line(),
-      panel.grid.major = element_line(colour = "#f0f0f0"),
       panel.grid.minor = element_blank(),
       legend.key = element_rect(colour = NA),
       legend.key.size = unit(0.5, "cm"),
