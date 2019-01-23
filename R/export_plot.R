@@ -40,7 +40,7 @@ save_plot <- function(filename, plot = last_plot(), width=15, height=15, units =
   ggsave(paste(filename, ".png", sep = ""), plot, width = width, height = height, ...)
 
   if (save_data == TRUE){
-   data_file <- paste0(filename, ".data.txt")
+   data_file <- paste0(filename, ".data.tsv")
    save_data(data_file)
   }
 }
