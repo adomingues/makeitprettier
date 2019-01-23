@@ -27,7 +27,6 @@ theme_ricas <- function(base_size=16, base_family="Helvetica") {
       axis.text = element_text(),
       axis.line = element_line(colour = "black"),
       axis.ticks = element_line(),
-      panel.grid.minor = element_blank(),
       legend.key = element_rect(colour = NA),
       legend.key.size = unit(0.5, "cm"),
       legend.spacing = unit(0.5, "cm"),
@@ -38,6 +37,7 @@ theme_ricas <- function(base_size=16, base_family="Helvetica") {
       strip.text = element_text(face = "bold"),
       panel.spacing.y = unit(2, "lines"),
       axis.text.x = element_text(angle=40, vjust=.8, hjust=1.01),
-      panel.grid.major = element_blank(), panel.grid.minor = element_blank()
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank()
     ))
 }
